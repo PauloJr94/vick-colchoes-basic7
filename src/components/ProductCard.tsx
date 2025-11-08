@@ -44,22 +44,12 @@ const ProductCard = ({
           </p>
         )}
 
-        <div className="space-y-1">
-          {discount > 0 && (
-            <p className="text-sm text-muted-foreground line-through">
-              R$ {price.toFixed(2).replace(".", ",")}
-            </p>
-          )}
-          
+        <div className="space-y-2">
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-bold text-foreground">
-              R$ {finalPrice.toFixed(2).replace(".", ",")}
+              R$ {price.toFixed(2).replace(".", ",")}
             </span>
           </div>
-          
-          <p className="text-sm text-muted-foreground">
-            ou até 6x de R$ {installment.toFixed(2).replace(".", ",")} sem juros
-          </p>
         </div>
       </CardContent>
 
