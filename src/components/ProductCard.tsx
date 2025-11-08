@@ -26,22 +26,6 @@ const ProductCard = ({
   return (
     <Card className="group overflow-hidden border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-        {discount > 0 && (
-          <Badge className="absolute top-3 left-3 z-10 bg-accent text-accent-foreground font-bold px-3 py-1">
-            {discount}% OFF
-          </Badge>
-        )}
-        
-        {is_featured && (
-          <Badge className="absolute top-3 right-3 z-10 bg-primary text-primary-foreground font-semibold px-3 py-1">
-            Destaque
-          </Badge>
-        )}
-        
-        <button className="absolute top-3 right-3 z-10 bg-background/80 backdrop-blur-sm p-2 rounded-full hover:bg-background transition-colors">
-          <Heart className="h-4 w-4 text-foreground hover:fill-accent hover:text-accent" />
-        </button>
-
         <img
           src={image_url || "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800"}
           alt={name}
