@@ -30,6 +30,7 @@ const ProductList = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true);
+      console.log("Iniciando fetch de produtos...");
       const { data, error } = await supabase
         .from("products")
         .select(`
@@ -40,7 +41,9 @@ const ProductList = () => {
         `)
         .order("created_at", { ascending: false });
 
+      console.log("Resposta do Supabase - Data:", data, "Error:", error);
       if (error) throw error;
+      console.log(`Produtos carregados: ${data?.length || 0}`);
       setProducts(data || []);
     } catch (error) {
       console.error("Erro ao carregar produtos:", error);
