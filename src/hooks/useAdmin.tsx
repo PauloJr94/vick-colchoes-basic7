@@ -7,21 +7,18 @@ export const useAdmin = () => {
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
-    checkAuthStatus();
-
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       try {
         setUser(session?.user ?? null);
         if (session?.user) {
           setIsAdmin(true);
-          setLoading(false);
         } else {
           setIsAdmin(false);
-          setLoading(false);
         }
       } catch (error) {
         console.error('Error in auth state change:', error);
         setIsAdmin(false);
+      } finally {
         setLoading(false);
       }
     });
