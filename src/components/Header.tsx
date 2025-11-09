@@ -4,12 +4,14 @@ import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
 import { useAdmin } from "@/hooks/useAdmin";
 import { useCategoryFilter } from "@/hooks/useCategoryFilter";
+import { useProductSearchContext } from "@/hooks/useProductSearchContext";
 import logo from "@/assets/logo.jpg";
 
 const Header = () => {
   const navigate = useNavigate();
   const { isAdmin } = useAdmin();
   const { setSelectedCategory } = useCategoryFilter();
+  const { searchQuery, setSearchQuery } = useProductSearchContext();
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category.toLowerCase());
