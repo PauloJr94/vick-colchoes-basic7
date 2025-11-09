@@ -20,14 +20,11 @@ const Footer = () => {
               Qualidade, conforto e durabilidade em colchões, bases e acessórios para o seu descanso perfeito.
             </p>
             <div className="flex gap-3">
-              <Button size="icon" variant="outline" className="bg-primary-foreground/10 border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground">
-                <Facebook className="h-4 w-4" />
+              <Button size="icon" variant="outline" className="bg-primary-foreground/10 border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground" title="WhatsApp">
+                <MessageCircle className="h-4 w-4" />
               </Button>
-              <Button size="icon" variant="outline" className="bg-primary-foreground/10 border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground">
+              <Button size="icon" variant="outline" className="bg-primary-foreground/10 border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground" title="Instagram">
                 <Instagram className="h-4 w-4" />
-              </Button>
-              <Button size="icon" variant="outline" className="bg-primary-foreground/10 border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground">
-                <Youtube className="h-4 w-4" />
               </Button>
             </div>
           </div>
