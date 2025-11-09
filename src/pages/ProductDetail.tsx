@@ -6,6 +6,7 @@ import { ArrowLeft, ShoppingCart } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CategoryFilterProvider } from "@/hooks/useCategoryFilter";
+import { ProductSearchProvider } from "@/hooks/useProductSearchContext";
 
 interface Product {
   id: string;
