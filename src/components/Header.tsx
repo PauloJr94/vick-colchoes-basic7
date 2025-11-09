@@ -111,6 +111,24 @@ const Header = () => {
             >
               Conjuntos
             </button>
+            <button
+              onClick={() => handleCategoryClick("cabeceiras")}
+              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+            >
+              Cabeceiras
+            </button>
+            <button
+              onClick={() => handleCategoryClick("travesseiros")}
+              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+            >
+              Travesseiros
+            </button>
+            <button
+              onClick={() => handleCategoryClick("acessórios")}
+              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+            >
+              Acessórios
+            </button>
             <a href="#contato" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
               Contato
             </a>
