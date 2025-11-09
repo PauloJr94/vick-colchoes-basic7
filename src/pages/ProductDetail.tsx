@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ShoppingCart } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { CategoryFilterProvider } from "@/hooks/useCategoryFilter";
 
 interface Product {
   id: string;
@@ -83,7 +84,9 @@ const ProductDetail = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col">
-        <Header />
+        <CategoryFilterProvider>
+          <Header />
+        </CategoryFilterProvider>
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">Carregando...</div>
         </main>
@@ -95,7 +98,9 @@ const ProductDetail = () => {
   if (!product) {
     return (
       <div className="min-h-screen flex flex-col">
-        <Header />
+        <CategoryFilterProvider>
+          <Header />
+        </CategoryFilterProvider>
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">Produto não encontrado</div>
         </main>
@@ -106,7 +111,9 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <Header />
+      <CategoryFilterProvider>
+        <Header />
+      </CategoryFilterProvider>
       <main className="flex-1 container mx-auto px-4 py-8">
         <Button
           variant="ghost"

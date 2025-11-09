@@ -25,9 +25,9 @@ const Header = () => {
         <div className="container mx-auto px-4 py-2">
           <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
             <div className="flex items-center gap-4">
-              <a href="tel:+5581999999999" className="flex items-center gap-2 hover:text-accent transition-colors">
+              <a href="tel:+5587991018888" className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Phone className="h-3 w-3" />
-                <span className="hidden sm:inline">(81) 99999-9999</span>
+                <span className="hidden sm:inline">(87) 99101-8888</span>
               </a>
               <a href="mailto:contato@vcolchoes.com.br" className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Mail className="h-3 w-3" />
@@ -36,7 +36,7 @@ const Header = () => {
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="h-3 w-3" />
-              <span className="hidden sm:inline">Recife - PE</span>
+              <span className="hidden sm:inline">Garanhuns - PE/ Caruaru - PE</span>
             </div>
           </div>
         </div>
@@ -49,25 +49,37 @@ const Header = () => {
           <a href="/" className="flex items-center gap-3">
             <img src={logo} alt="V Colchões" className="h-12 w-12 rounded-full object-cover" />
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-foreground">V Colchões</h1>
-              <p className="text-xs text-muted-foreground">vick</p>
+              <h1 className="text-xl font-bold text-foreground">Vick Colchões</h1>
+              <p className="text-xs text-muted-foreground">Sua melhor noite de sono</p>
             </div>
           </a>
 
           {/* Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
-            <a href="#ofertas" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
+            <button
+              onClick={() => handleCategoryClick("all")}
+              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+            >
               OFERTAS
-            </a>
-            <a href="#colchoes" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
+            </button>
+            <button
+              onClick={() => handleCategoryClick("colchões")}
+              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+            >
               Colchões
-            </a>
-            <a href="#bases" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
+            </button>
+            <button
+              onClick={() => handleCategoryClick("bases")}
+              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+            >
               Bases
-            </a>
-            <a href="#conjuntos" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
+            </button>
+            <button
+              onClick={() => handleCategoryClick("conjuntos")}
+              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+            >
               Conjuntos
-            </a>
+            </button>
             <a href="#contato" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
               Contato
             </a>

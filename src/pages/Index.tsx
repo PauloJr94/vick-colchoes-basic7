@@ -8,8 +8,8 @@ import { CategoryFilterProvider } from "@/hooks/useCategoryFilter";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <CategoryFilterProvider>
+        <Header />
         <main>
           <PromoBanner />
           <CategoryIcons />
