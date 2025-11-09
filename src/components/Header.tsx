@@ -35,19 +35,18 @@ const Header = () => {
 
   const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      if (location.pathname !== "/") {
-        navigate("/");
-        setTimeout(() => {
-          const element = document.getElementById("produtos");
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 300);
-      } else {
+      const scrollToProducts = () => {
         const element = document.getElementById("produtos");
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
+      };
+
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(scrollToProducts, 500);
+      } else {
+        scrollToProducts();
       }
     }
   };
