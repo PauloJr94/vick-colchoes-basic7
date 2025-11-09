@@ -220,30 +220,28 @@ const Dashboard = () => {
 
       <main className="container mx-auto px-4 py-8">
         <div className="mb-6">
-          <div className="flex justify-between items-center mb-4">
-            <div>
-              <h2 className="text-xl font-semibold">Produtos</h2>
-              <p className="text-sm text-muted-foreground">
-                Gerencie o catálogo de produtos da loja
-              </p>
-            </div>
-            <Button onClick={() => setIsFormOpen(true)}>
-              <Plus className="w-4 h-4 mr-2" />
-              Novo Produto
-            </Button>
+          <div className="mb-4">
+            <h2 className="text-xl font-semibold">Produtos</h2>
+            <p className="text-sm text-muted-foreground">
+              Gerencie o catálogo de produtos da loja
+            </p>
           </div>
 
-          <div className="flex items-center gap-3 justify-between">
-            <div className="relative max-w-xs">
+          <div className="flex items-center justify-between gap-3">
+            <div className="relative max-w-xs flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 type="text"
                 placeholder="Buscar por nome ou categoria..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 pr-4 py-2"
+                className="pl-10 pr-4 py-2 w-full"
               />
             </div>
+            <Button onClick={() => setIsFormOpen(true)}>
+              <Plus className="w-4 h-4 mr-2" />
+              Novo Produto
+            </Button>
           </div>
         </div>
 
