@@ -36,7 +36,7 @@ const Header = () => {
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="h-3 w-3" />
-              <span className="hidden sm:inline">Recife - PE</span>
+              <span className="hidden sm:inline">Garanhuns - PE/ Caruaru - PE</span>
             </div>
           </div>
         </div>
