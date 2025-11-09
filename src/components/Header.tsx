@@ -1,4 +1,5 @@
-import { User, Menu, MapPin, Phone, Mail, Search } from "lucide-react";
+import { useEffect, useState } from "react";
+import { User, Menu, MapPin, Phone, Mail, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -13,6 +14,22 @@ const Header = () => {
   const { isAdmin } = useAdmin();
   const { setSelectedCategory } = useCategoryFilter();
   const { searchQuery, setSearchQuery } = useProductSearchContext();
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMobileMenuOpen(false);
+    };
+    if (isMobileMenuOpen) {
+      window.addEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category.toLowerCase());
@@ -33,6 +50,11 @@ const Header = () => {
     } else {
       scrollToProducts();
     }
+  };
+
+  const handleMobileNav = (category: string | null) => {
+    if (category) handleCategoryClick(category);
+    setIsMobileMenuOpen(false);
   };
 
   const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -85,9 +107,9 @@ const Header = () => {
           {/* Logo */}
           <a href="/" className="flex items-center gap-3">
             <img src={logo} alt="V Colchões" className="h-12 w-12 rounded-full object-cover" />
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold text-foreground">Vick Colchões</h1>
-              <p className="text-xs text-muted-foreground">Sua melhor noite de sono</p>
+            <div className="block">
+              <h1 className="text-lg sm:text-xl font-bold text-foreground leading-tight">Vick Colchões</h1>
+              <p className="hidden sm:block text-xs text-muted-foreground">Sua melhor noite de sono</p>
             </div>
           </a>
 
@@ -145,7 +167,15 @@ const Header = () => {
             >
               <User className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="lg:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="lg:hidden"
+              onClick={() => setIsMobileMenuOpen(true)}
+              aria-label="Abrir menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+            >
               <Menu className="h-5 w-5" />
             </Button>
           </div>
@@ -166,6 +196,84 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Sidebar Menu */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-[1px]"
+          onClick={() => setIsMobileMenuOpen(false)}
+          aria-hidden="true"
+        >
+          <div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-background border-l border-border shadow-xl p-4 animate-in slide-in-from-right fade-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <img src={logo} alt="V Colchões" className="h-10 w-10 rounded-full object-cover" />
+                <span className="text-base font-semibold">Vick Colchões</span>
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Fechar menu"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <X className="h-5 w-5" />
+              </Button>
+            </div>
+
+            <nav className="grid gap-2">
+              <button
+                onClick={() => handleMobileNav("colchões")}
+                className="w-full text-left px-3 py-2 rounded-md hover:bg-accent/40"
+              >
+                Colchões
+              </button>
+              <button
+                onClick={() => handleMobileNav("bases")}
+                className="w-full text-left px-3 py-2 rounded-md hover:bg-accent/40"
+              >
+                Bases
+              </button>
+              <button
+                onClick={() => handleMobileNav("conjuntos")}
+                className="w-full text-left px-3 py-2 rounded-md hover:bg-accent/40"
+              >
+                Conjuntos
+              </button>
+              <button
+                onClick={() => handleMobileNav("cabeceiras")}
+                className="w-full text-left px-3 py-2 rounded-md hover:bg-accent/40"
+              >
+                Cabeceiras
+              </button>
+              <button
+                onClick={() => handleMobileNav("travesseiros")}
+                className="w-full text-left px-3 py-2 rounded-md hover:bg-accent/40"
+              >
+                Travesseiros
+              </button>
+              <button
+                onClick={() => handleMobileNav("acessórios")}
+                className="w-full text-left px-3 py-2 rounded-md hover:bg-accent/40"
+              >
+                Acessórios
+              </button>
+              <a
+                href="#contato"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full px-3 py-2 rounded-md hover:bg-accent/40"
+              >
+                Contato
+              </a>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
