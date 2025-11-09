@@ -45,7 +45,6 @@ export const ProductTable = ({ products, loading, onEdit, onDelete }: ProductTab
             <TableHead>Preço</TableHead>
             <TableHead>Estoque</TableHead>
             <TableHead>Categoria</TableHead>
-            <TableHead>Desconto</TableHead>
             <TableHead className="text-right">Ações</TableHead>
           </TableRow>
         </TableHeader>
@@ -79,9 +78,6 @@ export const ProductTable = ({ products, loading, onEdit, onDelete }: ProductTab
               </TableCell>
               <TableCell>
                 {product.categories?.name || '-'}
-              </TableCell>
-              <TableCell>
-                {product.discount ? `${product.discount}%` : '-'}
               </TableCell>
               <TableCell className="text-right">
                 <div className="flex justify-end gap-2">
