@@ -163,7 +163,7 @@ const Dashboard = () => {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div>
             <h1 className="text-2xl font-bold">Painel Administrativo</h1>
-            <p className="text-sm text-muted-foreground">V Colchões - Gestão de Produtos</p>
+            <p className="text-sm text-muted-foreground">Vick Colchões - Gestão de Produtos</p>
           </div>
           <Button
             variant="outline"
