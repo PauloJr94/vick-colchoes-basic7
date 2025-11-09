@@ -82,16 +82,17 @@ const ProductList = () => {
     }
   };
 
-  const filteredProducts = selectedCategory === "all"
-    ? products
-    : products.filter((product) => {
+  const categoryFilteredProducts = selectedCategory === "all"
+    ? searchFilteredProducts
+    : searchFilteredProducts.filter((product) => {
         if (!product.categories?.name) return false;
         const match = product.categories.name.toLowerCase() === selectedCategory.toLowerCase();
         return match;
       });
 
   console.log("selectedCategory:", selectedCategory);
-  console.log("filteredProducts:", filteredProducts);
+  console.log("searchQuery:", searchQuery);
+  console.log("filteredProducts:", categoryFilteredProducts);
 
   if (loading) {
     return (
