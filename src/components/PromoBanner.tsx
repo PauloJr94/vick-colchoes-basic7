@@ -11,7 +11,7 @@ const PromoBanner = () => {
         />
       </div>
 
-      <div className="relative h-full flex items-center">
+      <div className="relative h-full flex items-end pb-12 md:pb-16">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-6xl font-bold leading-tight text-white drop-shadow-lg">
             Colchão dos seus Sonhos
