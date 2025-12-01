@@ -52,18 +52,17 @@ const BenefitsSection = () => {
 
   return (
     <section className="bg-secondary/10 py-6 sm:py-8 md:py-8">
-      {/* Desktop Grid */}
-      <div className="hidden md:block container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-4">
+      <div className="container mx-auto px-3 sm:px-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-4">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
-              <div key={index} className="flex items-start gap-4 py-4 px-3">
+              <div key={index} className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3 py-2 sm:py-3 px-2 sm:px-3">
                 <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
-                  <Icon className="h-5 w-5 md:h-6 md:w-6 text-accent" />
+                  <Icon className="h-5 w-5 text-accent" />
                 </div>
                 <div className="flex-1 text-left">
-                  <h3 className="font-semibold text-xs md:text-sm text-foreground leading-tight">
+                  <h3 className="font-semibold text-xs sm:text-sm text-foreground leading-tight">
                     {benefit.title}
                   </h3>
                   {benefit.description && (
@@ -85,59 +84,6 @@ const BenefitsSection = () => {
               </div>
             );
           })}
-        </div>
-      </div>
-
-      {/* Mobile Carousel */}
-      <div className="md:hidden">
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              return (
-                <div
-                  key={index}
-                  className="flex-[0_0_100%] px-4 py-5 flex items-start gap-3 min-w-0"
-                >
-                  <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
-                    <Icon className="h-5 w-5 text-accent" />
-                  </div>
-                  <div className="flex-1 text-left">
-                    <h3 className="font-semibold text-xs text-foreground leading-tight">
-                      {benefit.title}
-                    </h3>
-                    {benefit.description && (
-                      <p className="text-xs text-muted-foreground mt-0.5 leading-tight">
-                        {benefit.description}
-                      </p>
-                    )}
-                    {benefit.subtext && (
-                      <p className="text-xs text-muted-foreground mt-0.5 leading-tight">
-                        {benefit.subtext}
-                      </p>
-                    )}
-                    {benefit.footnote && (
-                      <p className="text-xs text-muted-foreground/70 mt-0.5 italic leading-tight">
-                        {benefit.footnote}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Carousel Dots Indicators */}
-        <div className="flex justify-center gap-2 mt-3 pb-2">
-          {benefits.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => emblaApi?.scrollToIndex(index)}
-              className="h-1.5 w-1.5 rounded-full bg-accent/40 transition-all hover:bg-accent/60"
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
         </div>
       </div>
     </section>
