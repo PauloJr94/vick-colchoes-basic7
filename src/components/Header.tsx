@@ -106,7 +106,7 @@ const Header = () => {
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 sm:gap-3">
-            <img src={logo} alt="V Colchões" className="h-10 sm:h-12 w-10 sm:w-12 rounded-full object-cover" />
+            <img src={logo} alt="Vick Colchões" className="h-10 sm:h-12 w-10 sm:w-12 rounded-full object-cover" />
             <div className="block min-w-0">
               <h1 className="text-base sm:text-lg md:text-xl font-bold text-foreground leading-tight truncate">Vick Colchões</h1>
               <p className="hidden sm:block text-xs text-muted-foreground">Sua melhor noite de sono</p>
