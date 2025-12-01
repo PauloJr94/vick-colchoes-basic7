@@ -51,7 +51,7 @@ export const ProductTable = ({ products, loading, onEdit, onDelete }: ProductTab
         <TableBody>
           {products.map((product) => (
             <TableRow key={product.id}>
-              <TableCell>
+              <TableCell className="w-20 min-w-20">
                 {product.image_url ? (
                   <img
                     src={product.image_url}
@@ -64,22 +64,22 @@ export const ProductTable = ({ products, loading, onEdit, onDelete }: ProductTab
                   </div>
                 )}
               </TableCell>
-              <TableCell className="font-medium">{product.name}</TableCell>
-              <TableCell className="max-w-xs truncate">
+              <TableCell className="font-medium min-w-32">{product.name}</TableCell>
+              <TableCell className="max-w-xs truncate min-w-40">
                 {product.description || '-'}
               </TableCell>
-              <TableCell>
+              <TableCell className="min-w-24">
                 R$ {product.price?.toFixed(2).replace('.', ',')}
               </TableCell>
-              <TableCell>
+              <TableCell className="min-w-24">
                 <Badge variant={product.stock > 0 ? 'default' : 'destructive'}>
                   {product.stock || 0}
                 </Badge>
               </TableCell>
-              <TableCell>
+              <TableCell className="min-w-28">
                 {product.categories?.name || '-'}
               </TableCell>
-              <TableCell className="text-right">
+              <TableCell className="text-right min-w-20">
                 <div className="flex justify-end gap-2">
                   <Button
                     variant="ghost"
