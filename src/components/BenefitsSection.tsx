@@ -25,7 +25,7 @@ const benefits = [
 ];
 
 const BenefitsSection = () => {
-  const autoplayRef = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
+  const autoplayRef = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [autoplayRef.current]);
   const prevButtonRef = useRef<HTMLButtonElement>(null);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
