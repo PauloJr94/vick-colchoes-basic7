@@ -24,7 +24,10 @@ const ProductCard = ({
   const navigate = useNavigate();
 
   return (
-    <Card className="group overflow-hidden border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+    <Card
+      className="group overflow-hidden border border-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col h-full cursor-pointer"
+      onClick={() => navigate(`/produto/${id}`)}
+    >
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
         <img
           src={image_url || "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800"}
