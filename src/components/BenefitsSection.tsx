@@ -102,21 +102,21 @@ const BenefitsSection = () => {
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
-                  <div key={index} className="flex-[0_0_100%] px-3 py-3 flex flex-col items-center text-center gap-2 min-w-0">
-                    <div className="p-2 bg-accent/10 rounded-lg">
+                  <div key={index} className="flex-[0_0_100%] px-3 py-3 flex flex-row items-start gap-3 min-w-0">
+                    <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
                       <Icon className="h-5 w-5 text-accent" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-sm text-foreground leading-tight">
+                    <div className="flex-1 text-left">
+                      <h3 className="font-semibold text-base text-foreground leading-tight">
                         {benefit.title}
                       </h3>
                       {benefit.description && (
-                        <p className="text-xs text-muted-foreground mt-0.5 leading-tight">
+                        <p className="text-sm text-muted-foreground mt-0.5 leading-tight">
                           {benefit.description}
                         </p>
                       )}
                       {benefit.subtext && (
-                        <p className="text-xs text-muted-foreground mt-0.5 leading-tight">
+                        <p className="text-sm text-muted-foreground mt-0.5 leading-tight">
                           {benefit.subtext}
                         </p>
                       )}
