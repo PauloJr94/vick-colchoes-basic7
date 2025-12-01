@@ -161,7 +161,7 @@ const Settings = () => {
               type="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              placeholder="contato@vcolchoes.com"
+              placeholder="vickcolchoes@gmail.com"
             />
           </div>
 

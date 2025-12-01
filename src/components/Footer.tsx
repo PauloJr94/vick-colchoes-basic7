@@ -78,8 +78,8 @@ const Footer = () => {
                 <Mail className="h-4 sm:h-5 w-4 sm:w-5 mt-0.5 flex-shrink-0" />
                 <div className="text-xs sm:text-sm min-w-0">
                   <p className="opacity-80">E-mail</p>
-                  <a href="mailto:contato@vcolchoes.com.br" className="hover:text-accent transition-colors break-all">
-                    contato@vcolchoes.com.br
+                  <a href="mailto:vickcolchoes@gmail.com" className="hover:text-accent transition-colors break-all">
+                    vickcolchoes@gmail.com
                   </a>
                 </div>
               </li>

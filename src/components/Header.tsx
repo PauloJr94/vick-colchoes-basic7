@@ -88,9 +88,9 @@ const Header = () => {
                 <Phone className="h-3 w-3" />
                 <span className="hidden sm:inline">(87) 99101-8888</span>
               </a>
-              <a href="mailto:contato@vcolchoes.com.br" className="flex items-center gap-1 sm:gap-2 hover:text-accent transition-colors">
+              <a href="mailto:vickcolchoes@gmail.com" className="flex items-center gap-1 sm:gap-2 hover:text-accent transition-colors">
                 <Mail className="h-3 w-3" />
-                <span className="hidden lg:inline">contato@vcolchoes.com.br</span>
+                <span className="hidden md:inline">vickcolchoes@gmail.com</span>
               </a>
             </div>
             <div className="flex items-center gap-1 sm:gap-2">

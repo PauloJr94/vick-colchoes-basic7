@@ -36,64 +36,66 @@ export const ProductTable = ({ products, loading, onEdit, onDelete }: ProductTab
 
   return (
     <div className="border rounded-lg">
-      <Table>
+      <Table className="w-full text-sm">
         <TableHeader>
           <TableRow>
-            <TableHead>Imagem</TableHead>
-            <TableHead>Nome</TableHead>
-            <TableHead>Descrição</TableHead>
-            <TableHead>Preço</TableHead>
-            <TableHead>Estoque</TableHead>
-            <TableHead>Categoria</TableHead>
-            <TableHead className="text-right">Ações</TableHead>
+            <TableHead className="p-2 w-16">Imagem</TableHead>
+            <TableHead className="p-2">Nome</TableHead>
+            <TableHead className="p-2 max-w-32">Descrição</TableHead>
+            <TableHead className="p-2 whitespace-nowrap">Preço</TableHead>
+            <TableHead className="p-2 whitespace-nowrap">Estoque</TableHead>
+            <TableHead className="p-2 whitespace-nowrap">Categoria</TableHead>
+            <TableHead className="p-2 text-center">Ações</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {products.map((product) => (
             <TableRow key={product.id}>
-              <TableCell>
+              <TableCell className="p-2 w-16">
                 {product.image_url ? (
                   <img
                     src={product.image_url}
                     alt={product.name}
-                    className="w-16 h-16 object-cover rounded"
+                    className="w-12 h-12 object-cover rounded"
                   />
                 ) : (
-                  <div className="w-16 h-16 bg-muted rounded flex items-center justify-center">
-                    <span className="text-xs text-muted-foreground">Sem imagem</span>
+                  <div className="w-12 h-12 bg-muted rounded flex items-center justify-center">
+                    <span className="text-xs text-muted-foreground">-</span>
                   </div>
                 )}
               </TableCell>
-              <TableCell className="font-medium">{product.name}</TableCell>
-              <TableCell className="max-w-xs truncate">
+              <TableCell className="p-2 font-medium text-sm">{product.name}</TableCell>
+              <TableCell className="p-2 text-xs truncate max-w-32">
                 {product.description || '-'}
               </TableCell>
-              <TableCell>
+              <TableCell className="p-2 whitespace-nowrap text-sm">
                 R$ {product.price?.toFixed(2).replace('.', ',')}
               </TableCell>
-              <TableCell>
-                <Badge variant={product.stock > 0 ? 'default' : 'destructive'}>
+              <TableCell className="p-2 whitespace-nowrap">
+                <Badge variant={product.stock > 0 ? 'default' : 'destructive'} className="text-xs">
                   {product.stock || 0}
                 </Badge>
               </TableCell>
-              <TableCell>
+              <TableCell className="p-2 whitespace-nowrap text-sm">
                 {product.categories?.name || '-'}
               </TableCell>
-              <TableCell className="text-right">
-                <div className="flex justify-end gap-2">
+              <TableCell className="p-2 text-center">
+                <div className="flex justify-center gap-1">
                   <Button
                     variant="ghost"
-                    size="icon"
+                    size="sm"
+                    className="h-8 w-8 p-0"
                     onClick={() => onEdit(product)}
                   >
-                    <Edit className="w-4 h-4" />
+                    <Edit className="w-3.5 h-3.5" />
                   </Button>
                   <Button
                     variant="ghost"
-                    size="icon"
+                    size="sm"
+                    className="h-8 w-8 p-0"
                     onClick={() => onDelete(product.id)}
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <Trash2 className="w-3.5 h-3.5" />
                   </Button>
                 </div>
               </TableCell>

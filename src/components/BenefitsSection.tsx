@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import { Truck, Tag, CreditCard, Ruler, ChevronLeft, ChevronRight } from "lucide-react";
 
 const benefits = [
@@ -24,7 +25,8 @@ const benefits = [
 ];
 
 const BenefitsSection = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const autoplayRef = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [autoplayRef.current]);
   const prevButtonRef = useRef<HTMLButtonElement>(null);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -47,7 +49,7 @@ const BenefitsSection = () => {
     <section className="bg-secondary/10 py-3 sm:py-4 md:py-5">
       <div className="container mx-auto px-3 sm:px-4">
         {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-2 md:gap-3">
+        <div className="hidden md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-2 md:gap-3 md:justify-center">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (

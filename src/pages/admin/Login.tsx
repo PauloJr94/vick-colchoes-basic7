@@ -118,7 +118,7 @@ const Login = () => {
             <Input
               id="email"
               type="email"
-              placeholder="admin@vcolchoes.com"
+              placeholder="vickcolchoes@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required

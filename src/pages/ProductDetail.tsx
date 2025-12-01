@@ -32,16 +32,11 @@ const ProductDetail = () => {
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (id) {
       fetchProduct(id);
     }
   }, [id]);
-
-  useEffect(() => {
-    if (product) {
-      window.scrollTo(0, 0);
-    }
-  }, [product]);
 
   const fetchProduct = async (productId: string) => {
     try {
