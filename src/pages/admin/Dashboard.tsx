@@ -85,12 +85,16 @@ const Dashboard = () => {
   };
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
-    toast({
-      title: 'Logout realizado',
-      description: 'Até logo!',
-    });
-    navigate('/');
+    try {
+      await supabase.auth.signOut();
+      toast({
+        title: 'Logout realizado',
+        description: 'Até logo!',
+      });
+    } catch (error) {
+      console.error('Erro ao fazer logout:', error);
+    }
+    window.location.href = '/';
   };
 
   const handleEdit = (product: any) => {
