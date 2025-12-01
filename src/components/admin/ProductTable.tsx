@@ -35,17 +35,17 @@ export const ProductTable = ({ products, loading, onEdit, onDelete }: ProductTab
   }
 
   return (
-    <div className="border rounded-lg overflow-x-auto">
-      <Table className="w-full">
+    <div className="border rounded-lg">
+      <Table className="w-full text-sm">
         <TableHeader>
           <TableRow>
-            <TableHead className="w-20 min-w-20">Imagem</TableHead>
-            <TableHead className="min-w-32">Nome</TableHead>
-            <TableHead className="min-w-40">Descrição</TableHead>
-            <TableHead className="min-w-24">Preço</TableHead>
-            <TableHead className="min-w-24">Estoque</TableHead>
-            <TableHead className="min-w-28">Categoria</TableHead>
-            <TableHead className="text-right min-w-20">Ações</TableHead>
+            <TableHead className="p-2 w-16">Imagem</TableHead>
+            <TableHead className="p-2">Nome</TableHead>
+            <TableHead className="p-2 max-w-32">Descrição</TableHead>
+            <TableHead className="p-2 whitespace-nowrap">Preço</TableHead>
+            <TableHead className="p-2 whitespace-nowrap">Estoque</TableHead>
+            <TableHead className="p-2 whitespace-nowrap">Categoria</TableHead>
+            <TableHead className="p-2 text-right">Ações</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
