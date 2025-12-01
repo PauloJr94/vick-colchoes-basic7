@@ -135,10 +135,10 @@ const ProductList = () => {
   }
 
   return (
-    <section className="py-16" id="produtos">
+    <section className="py-8 sm:py-12 md:py-16" id="produtos">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
             Nossos Produtos
           </h2>
         </div>
