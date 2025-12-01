@@ -45,7 +45,7 @@ export const ProductTable = ({ products, loading, onEdit, onDelete }: ProductTab
             <TableHead className="p-2 whitespace-nowrap">Preço</TableHead>
             <TableHead className="p-2 whitespace-nowrap">Estoque</TableHead>
             <TableHead className="p-2 whitespace-nowrap">Categoria</TableHead>
-            <TableHead className="p-2 text-right">Ações</TableHead>
+            <TableHead className="p-2 text-center">Ações</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
