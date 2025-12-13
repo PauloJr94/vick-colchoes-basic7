@@ -73,13 +73,26 @@ const ProductDetail = () => {
 
       setProduct(productWithCategory);
 
-      // Handle images
-      const allImages = [];
+      // Handle images - support both JSON array and string formats
+      let allImages: string[] = [];
       if (data.image_url) {
-        allImages.push(data.image_url);
-        setSelectedImage(data.image_url);
+        try {
+          // Try to parse as JSON array
+          const parsed = JSON.parse(data.image_url);
+          if (Array.isArray(parsed)) {
+            allImages = parsed.filter((url: any) => typeof url === 'string' && url.length > 0);
+          } else {
+            allImages = [data.image_url];
+          }
+        } catch {
+          // If not JSON, treat as single image string
+          allImages = [data.image_url];
+        }
       }
 
+      if (allImages.length > 0) {
+        setSelectedImage(allImages[0]);
+      }
       setImages(allImages);
     } catch (error: any) {
       console.error("Erro ao carregar produto:", error?.message || JSON.stringify(error));
