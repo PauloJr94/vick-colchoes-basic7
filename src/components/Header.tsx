@@ -60,6 +60,8 @@ const Header = () => {
 
   const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
+      window.location.hash = "";
+
       const scrollToProducts = () => {
         setTimeout(() => {
           const element = document.getElementById("produtos");
