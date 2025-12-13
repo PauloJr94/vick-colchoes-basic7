@@ -141,11 +141,15 @@ const ProductDetail = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Image Gallery */}
           <div className="space-y-4">
-            <div className="aspect-[4/3] bg-muted rounded-lg overflow-hidden">
+            <div className="aspect-[4/3] bg-muted rounded-lg overflow-hidden flex items-center justify-center">
               <img
                 src={selectedImage}
                 alt={product.name}
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800";
+                }}
               />
             </div>
 
