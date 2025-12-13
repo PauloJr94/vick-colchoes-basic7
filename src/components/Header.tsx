@@ -34,6 +34,7 @@ const Header = () => {
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category.toLowerCase());
     setSearchQuery("");
+    window.location.hash = "";
 
     const scrollToProducts = () => {
       setTimeout(() => {
