@@ -6,7 +6,7 @@ const ContactSection = () => {
     {
       id: 1,
       name: "Garanhuns",
-      address: "Rua exemplo, 123 - Garanhuns, PE",
+      address: "Rua Quinze de Novembro - Garanhuns, PE",
       phone: "(87) 99101-8888",
       email: "vickcolchoes@gmail.com",
       hours: "Seg - Sex: 8:00 - 18:00 | Sab: 8:00 - 13:00",
@@ -15,7 +15,7 @@ const ContactSection = () => {
     {
       id: 2,
       name: "Caruaru",
-      address: "Rua exemplo, 456 - Caruaru, PE",
+      address: "Rua Tupy - Salgado - Caruaru, PE",
       phone: "(87) 99101-8888",
       email: "vickcolchoes@gmail.com",
       hours: "Seg - Sex: 8:00 - 18:00 | Sab: 8:00 - 13:00",
