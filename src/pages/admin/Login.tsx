@@ -8,10 +8,8 @@ import { toast } from '@/hooks/use-toast';
 import logo from '@/assets/logo.jpg';
 
 const Login = () => {
-  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -37,48 +35,6 @@ const Login = () => {
     } catch (error: any) {
       toast({
         title: 'Erro ao fazer login',
-        description: error.message,
-        variant: 'destructive',
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleRegister = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-      });
-
-      if (error) throw error;
-
-      if (data.user) {
-        await supabase
-          .from('profiles')
-          .insert([
-            {
-              id: data.user.id,
-              name,
-            },
-          ]);
-
-        toast({
-          title: 'Cadastro realizado com sucesso!',
-          description: 'Você pode fazer login agora.',
-        });
-        setIsLogin(true);
-        setEmail('');
-        setPassword('');
-        setName('');
-      }
-    } catch (error: any) {
-      toast({
-        title: 'Erro ao cadastrar',
         description: error.message,
         variant: 'destructive',
       });
