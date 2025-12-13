@@ -91,9 +91,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="w-full max-w-md p-8 space-y-6 bg-card rounded-lg shadow-lg border">
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-            <Lock className="w-6 h-6 text-primary" />
-          </div>
+          <img src={logo} alt="Vick Colchões" className="w-16 h-16 rounded-full mx-auto object-cover" />
           <h1 className="text-2xl font-bold">Painel Administrativo</h1>
           <p className="text-muted-foreground">Vick Colchões</p>
         </div>
