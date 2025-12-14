@@ -67,11 +67,13 @@ const Dashboard = () => {
       if (error) throw error;
       setProducts(data || []);
     } catch (error: any) {
+      const errorMessage = error?.message || JSON.stringify(error) || 'Erro desconhecido ao carregar produtos';
       toast({
         title: 'Erro ao carregar produtos',
-        description: error.message,
+        description: errorMessage,
         variant: 'destructive',
       });
+      console.error('Fetch products error:', error);
     } finally {
       setLoadingProducts(false);
     }
@@ -87,11 +89,13 @@ const Dashboard = () => {
       if (error) throw error;
       setCategories(data || []);
     } catch (error: any) {
+      const errorMessage = error?.message || JSON.stringify(error) || 'Erro desconhecido ao carregar categorias';
       toast({
         title: 'Erro ao carregar categorias',
-        description: error.message,
+        description: errorMessage,
         variant: 'destructive',
       });
+      console.error('Fetch categories error:', error);
     }
   };
 
@@ -132,11 +136,13 @@ const Dashboard = () => {
 
       fetchProducts();
     } catch (error: any) {
+      const errorMessage = error?.message || JSON.stringify(error) || 'Erro desconhecido ao excluir produto';
       toast({
         title: 'Erro ao excluir produto',
-        description: error.message,
+        description: errorMessage,
         variant: 'destructive',
       });
+      console.error('Delete product error:', error);
     } finally {
       setDeleteConfirmOpen(false);
       setDeletingProductId(null);
