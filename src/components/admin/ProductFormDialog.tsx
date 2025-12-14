@@ -147,10 +147,15 @@ export const ProductFormDialog = ({ open, onClose, product, categories }: Produc
 
       const imageUrl = allImageUrls.length > 0 ? JSON.stringify(allImageUrls) : formData.image_url;
 
+      let priceValue = parseFloat(formData.price);
+      if (isNaN(priceValue)) {
+        throw new Error('Preço inválido. Digite um valor numérico como 2.999,99');
+      }
+
       const productData = {
         name: formData.name,
         description: formData.description || null,
-        price: parseFloat(formData.price),
+        price: priceValue,
         stock: parseInt(formData.stock) || 0,
         category_id: formData.category_id || null,
         image_url: imageUrl,
@@ -228,12 +233,31 @@ export const ProductFormDialog = ({ open, onClose, product, categories }: Produc
               <Label htmlFor="price">Preço (R$) *</Label>
               <Input
                 id="price"
-                type="number"
-                step="0.01"
+                type="text"
+                placeholder="2.999,99"
                 value={formData.price}
-                onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                onChange={(e) => {
+                  let value = e.target.value;
+                  value = value.replace(/\s/g, '');
+                  const lastCommaIndex = value.lastIndexOf(',');
+                  const lastDotIndex = value.lastIndexOf('.');
+
+                  let decimalSeparator = ',';
+                  if (lastDotIndex > lastCommaIndex) {
+                    decimalSeparator = '.';
+                    value = value.replace(/\./g, '').replace(',', '.');
+                  } else {
+                    value = value.replace(/\./g, '').replace(',', '.');
+                  }
+
+                  const numericValue = parseFloat(value);
+                  if (!isNaN(numericValue) || value === '') {
+                    setFormData({ ...formData, price: value });
+                  }
+                }}
                 required
               />
+              <p className="text-xs text-muted-foreground">Digite como 2.999,99 ou 2999.99</p>
             </div>
 
             <div className="space-y-2">
