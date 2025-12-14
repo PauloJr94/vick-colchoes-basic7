@@ -260,10 +260,10 @@ export const ProductFormDialog = ({ open, onClose, product, categories }: Produc
               <Label htmlFor="price">Preço (R$) *</Label>
               <Input
                 id="price"
-                type="number"
-                step="0.01"
+                type="text"
+                placeholder="0,00"
                 value={formData.price}
-                onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                onChange={(e) => handlePriceChange(e.target.value)}
                 required
               />
             </div>
